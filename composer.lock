@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "383d9f4256c7f21f0c0fce0cd328c332",
+    "content-hash": "3bb9501da3425e24c61514e22afad7bc",
     "packages": [
         {
             "name": "brick/math",
@@ -633,6 +633,55 @@
                 }
             ],
             "time": "2023-11-12T22:16:48+00:00"
+        },
+        {
+            "name": "grosv/laravel-passwordless-login",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/grosv/laravel-passwordless-login.git",
+                "reference": "df385eaca3a607ae0f3597072b7fae8c3ed22ffc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/grosv/laravel-passwordless-login/zipball/df385eaca3a607ae0f3597072b7fae8c3ed22ffc",
+                "reference": "df385eaca3a607ae0f3597072b7fae8c3ed22ffc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": "Grosv\\LaravelPasswordlessLogin\\LaravelPasswordlessLoginProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Grosv\\LaravelPasswordlessLogin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ed Grosvenor",
+                    "email": "ed.grosvenor@wickedviral.com"
+                }
+            ],
+            "description": "Passwordless login using temporary signed URL",
+            "support": {
+                "issues": "https://github.com/grosv/laravel-passwordless-login/issues",
+                "source": "https://github.com/grosv/laravel-passwordless-login/tree/1.9.0"
+            },
+            "time": "2023-02-10T21:27:44+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2379,6 +2428,69 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.1"
             },
             "time": "2024-02-21T19:24:10+00:00"
+        },
+        {
+            "name": "norbybaru/passwordless-auth",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/norbybaru/laravel-passwordless-authentication.git",
+                "reference": "2b5460829c5409461eb73a9a6c6f27ff89dd5144"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/norbybaru/laravel-passwordless-authentication/zipball/2b5460829c5409461eb73a9a6c6f27ff89dd5144",
+                "reference": "2b5460829c5409461eb73a9a6c6f27ff89dd5144",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.1",
+                "nunomaduro/larastan": "^1.0|^2.0",
+                "orchestra/testbench": "^6.24|^7.0|^8.0",
+                "phpunit/phpunit": "^9.5|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NorbyBaru\\Passwordless\\PasswordlessServiceProvider"
+                    ],
+                    "aliases": {
+                        "Passwordless": "NorbyBaru\\Passwordless\\Facades\\Passwordless"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NorbyBaru\\Passwordless\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Norby Baruani",
+                    "email": "norbybaru@gmail.com"
+                }
+            ],
+            "description": "Laravel Passwordless login - Magic link",
+            "keywords": [
+                "Laravel Auth",
+                "Passwordless",
+                "laravel",
+                "magic link"
+            ],
+            "support": {
+                "issues": "https://github.com/norbybaru/laravel-passwordless-authentication/issues",
+                "source": "https://github.com/norbybaru/laravel-passwordless-authentication/tree/v1.1.0"
+            },
+            "time": "2023-03-29T08:31:28+00:00"
         },
         {
             "name": "nunomaduro/termwind",

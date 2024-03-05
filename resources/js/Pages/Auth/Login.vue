@@ -24,7 +24,7 @@ const form = useForm({
 
 const submit = () => {
     form.post(route('login'), {
-        onFinish: () => form.reset('password'),
+        onFinish: () => form.reset('email'),
     });
 };
 </script>
@@ -54,20 +54,20 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+<!--            <div class="mt-4">-->
+<!--                <InputLabel for="password" value="Password" />-->
 
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
+<!--                <TextInput-->
+<!--                    id="password"-->
+<!--                    type="password"-->
+<!--                    class="mt-1 block w-full"-->
+<!--                    v-model="form.password"-->
+<!--                    required-->
+<!--                    autocomplete="current-password"-->
+<!--                />-->
 
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
+<!--                <InputError class="mt-2" :message="form.errors.password" />-->
+<!--            </div>-->
 
             <div class="block mt-4">
                 <label class="flex items-center">

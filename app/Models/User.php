@@ -9,10 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use NorbyBaru\Passwordless\CanUsePasswordlessAuthenticatable;
+use NorbyBaru\Passwordless\Traits\PasswordlessAuthenticatable;
 
-class User extends Authenticatable  implements MustVerifyEmail
+class User extends Authenticatable implements CanUsePasswordlessAuthenticatable
+//class User extends Authenticatable  implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, PasswordlessAuthenticatable;
 
     /**
      * The attributes that are mass assignable.

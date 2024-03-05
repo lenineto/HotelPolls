@@ -9,9 +9,11 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Route;
+    use NorbyBaru\Passwordless\Facades\Passwordless;
 
-Route::middleware('guest')->group(function () {
+    Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
@@ -20,7 +22,19 @@ Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', function (Request $request) {
+        $validated = $request->validate([
+            'email' => 'required|email|exists:users|max:255',
+        ]);
+
+        $status = Passwordless::magicLink()->sendLink($validated);
+
+        return redirect()->back()->with([
+            'status' => trans($status)
+        ]);
+    });
+
+//    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');
