@@ -3,8 +3,6 @@
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\ProfileController;
 	use App\Http\Controllers\VoteController;
-	use App\Models\Poll;
-	use App\Models\User;
 	use Illuminate\Foundation\Application;
     use Illuminate\Http\Request;
 	use Illuminate\Support\Facades\Auth;

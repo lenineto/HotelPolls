@@ -4,7 +4,7 @@ import {Head, useForm} from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import HiddenInput from "@/Components/HiddenInput.vue";
 import VoteButton from "@/Components/VoteButton.vue";
-import ContendersList from "@/Pages/ContendersList.vue";
+import ContendersList from "@/Components/ContendersList.vue";
 import InputError from "@/Components/InputError.vue";
 
 const props = defineProps({
