@@ -27,6 +27,10 @@ class Poll extends Model
     {
         return self::find($id)->question;
     }
+    public function getContenders()
+    {
+        return $this->contenders()->get()->pluck('name', 'id')->toArray();
+    }
 
     public function createPoll($name, $contenders)
     {
@@ -48,9 +52,9 @@ class Poll extends Model
         return $active ? self::where(compact('active'))->get() : self::all();
     }
 
-    public function updatePoll($id, $name, $contenders)
+    public static function updateContenders(int $id, array $contenderIds = [])
     {
-        return self::find($id)->update(compact('name', 'contenders'));
+        return self::find($id)->update(['contenders' => $contenderIds]);
     }
 
     public function deletePoll($id)

@@ -22,4 +22,9 @@ class Contender extends Model
     {
        return $this->hasMany(Vote::class);
     }
+
+    public function findByName(string $name): self
+    {
+        return $this->where('name', $name)->first()->id;
+    }
 }

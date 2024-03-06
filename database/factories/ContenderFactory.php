@@ -15,11 +15,11 @@ class ContenderFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition($poll_id = 1): array
     {
         return [
             'name' => fake()->name,
-            'poll_id' => Poll::factory(),
+            'poll_id' => $poll_id,
         ];
     }
 }

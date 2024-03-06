@@ -11,8 +11,10 @@ class VoterSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(int $count = 1): void
+    public function run(): void
     {
-        User::factory($count)->create();
+        $limit = $this->command->ask('Please enter the  number of voters(users) to create. ', 1);
+
+        User::factory($limit)->create();
     }
 }

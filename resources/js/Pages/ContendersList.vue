@@ -22,7 +22,7 @@ watch(voteSelected, (newVal) => {
 </script>
 
 <template>
-    <ul class="grid w-64 gap-3 md:grid-cols-1 mt-4">
+    <ul class="grid w-7/12 gap-3 md:grid-cols-1 mt-4">
         <li v-for="contender in contenders" :key="contender.id">
             <div class="flex items-center">
                 <input :id="contender.id" v-model="form.contender_id" :value="contender.id" class="hidden peer" name="contender" type="radio"
