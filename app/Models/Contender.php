@@ -10,10 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Contender extends Model
 {
     use HasFactory;
-    protected $table = 'contenders';
+
     protected $fillable = ['name', 'poll_id'];
-    protected $hidden = ['created_at', 'updated_at'];
-    public $timestamps = true;
 
     public function poll(): BelongsTo
     {

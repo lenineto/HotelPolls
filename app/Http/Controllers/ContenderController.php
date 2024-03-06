@@ -2,65 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreContenderRequest;
-use App\Http\Requests\UpdateContenderRequest;
 use App\Models\Contender;
+use Illuminate\Http\Request;
 
 class ContenderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Contender::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        return Contender::create($request->all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreContenderRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Contender $contender)
     {
-        //
+        return $contender;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contender $contender)
+    public function update(Request $request, Contender $contender)
     {
-        //
+        $contender->update($request->all());
+        return $contender;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateContenderRequest $request, Contender $contender)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Contender $contender)
     {
-        //
+        $contender->delete();
+        return response()->json(null, 204);
     }
 }

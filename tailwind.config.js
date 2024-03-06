@@ -10,6 +10,13 @@ export default {
         './resources/js/**/*.vue',
     ],
 
+    /* This is needed to allow the use of the `from-${color}-500` classes,
+     * and we should keep it to a minimum to avoid bloating the CSS file.
+     */
+    safelist: [
+        {pattern: /(from|via|to)-(red|green|amber|purple|blue|teal)-(500|600|700)/},
+    ],
+
     theme: {
         extend: {
             fontFamily: {

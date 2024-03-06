@@ -64,6 +64,7 @@ const contendersArray = computed(() => Object.values(props.results.contenders));
                     </div>
 
                     <ResultsTable :results="props.results"/>
+                    <PieChart :results="props.results"/>
 
                 </div>
             </div>

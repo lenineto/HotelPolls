@@ -22,7 +22,7 @@ return [
     | when trying to access auth page and no 'redirect_to' query params is found on the url
     |
     */
-    'default_redirect_route' => 'home',
+    'default_redirect_route' => 'polls.show',
 
     /*
     |--------------------------------------------------------------------------

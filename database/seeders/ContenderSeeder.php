@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contender;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +19,7 @@ class ContenderSeeder extends Seeder
 
         foreach ($contenders as $poll => $contenders) {
             foreach ($contenders as $contender) {
-                \App\Models\Contender::factory()->create(['name' => $contender, 'poll_id' => \App\Models\Poll::where('name', $poll)->first()->id]);
+                Contender::factory()->create(['name' => $contender, 'poll_id' => \App\Models\Poll::where('name', $poll)->first()->id]);
             }
         }
     }

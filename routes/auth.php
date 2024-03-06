@@ -31,6 +31,7 @@ use Illuminate\Http\Request;
 
         return redirect()->back()->with([
             'status' => trans($status)
+//               'status' => __($status)
         ]);
     });
 

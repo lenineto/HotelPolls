@@ -4,17 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
 
 class Poll extends Model
 {
     use HasFactory;
-    protected $table = 'polls';
+
     protected $fillable = ['name', 'question', 'contenders', 'active'];
-    protected $hidden = ['created_at', 'updated_at'];
-    public $timestamps = true;
 
     protected $casts = [
         'name' => 'string',
@@ -23,75 +19,51 @@ class Poll extends Model
         'active' => 'boolean'
     ];
 
-    public static function getQuestion(mixed $id)
+    public function contenders(): HasMany
     {
-        return Poll::find($id)->question;
+        return $this->hasMany(Contender::class);
     }
-
+    public static function getQuestion($id)
+    {
+        return self::find($id)->question;
+    }
 
     public function createPoll($name, $contenders)
     {
-        $poll = new Poll();
-        $poll->name = $name;
-        $poll->contenders = $contenders;
-        $poll->active = 0;
-        $poll->save();
+        return $this->fill(compact('name', 'contenders', 'active'))->save();
     }
 
-    public function closePoll($id)
+    public function updatePollStatus($id, $active)
     {
-        $poll = Poll::find($id);
-        $poll->active = 0;
-        $poll->save();
-    }
-
-    public function openPoll($id)
-    {
-        $poll = Poll::find($id);
-        $poll->active = 1;
-        $poll->save();
+        return self::find($id)->update(compact('active'));
     }
 
     public function getPoll($id)
     {
-        return Poll::find($id)->first();
+        return self::find($id);
     }
 
     public function getPolls($active = false)
     {
-        if ($active) {
-            return Poll::where('active', $active)->get();
-        }
-        return Poll::all();
+        return $active ? self::where(compact('active'))->get() : self::all();
     }
-
 
     public function updatePoll($id, $name, $contenders)
     {
-        $poll = Poll::find($id);
-        $poll->name = $name;
-        $poll->contenders = $contenders;
-        $poll->save();
+        return self::find($id)->update(compact('name', 'contenders'));
     }
 
     public function deletePoll($id)
     {
-        $poll = Poll::find($id);
-        $poll->delete();
+        return self::find($id)->delete();
     }
 
     public function getPollByName($name)
     {
-        return Poll::where('name', $name)->first();
-    }
-
-    public function contenders() :HasMany
-    {
-        return $this->hasMany(Contender::class);
+        return self::where(compact('name'))->first();
     }
 
     public function getAvailablePolls($exclude = [], $active = true) {
-        return Poll::where('active', $active)->whereNotIn('id', $exclude)->get();
+        return self::where(compact('active'))->whereNotIn('id', $exclude)->get();
     }
-
 }
