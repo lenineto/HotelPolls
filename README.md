@@ -12,6 +12,7 @@ I knew this was going to be fun, so I decided to have all the fun and go for the
 - **Interactive UI**: The application uses Vue.js to create a dynamic and interactive user interface.
 - **Useful database factories and seeders**: to easily populate the database with dummy data for testing purposes. The seeders handle the required logic to properly create polls, contenders, voters and votes.
 - **Voting process is queued**: The vote controller dispatches a job to handle the vote process, using Laravel's built-in queue system. This way, the user doesn't have to wait for the vote to be processed, and the system can handle a large number of votes without crashing.
+- **Charts on voting results**: The voting results controls renders a table with the votes and a (simple) chart with the percentage of votes for each contender, using the `vue3-charts` library.
 
 ## Installation
 
